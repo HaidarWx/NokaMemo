@@ -1,0 +1,6 @@
+@import "tailwindcss";
+@theme {
+  /* Opsi A: Otomatis berlaku untuk seluruh halaman (font-sans) */
+  --font-sans: "Poppins", sans-serif;
+
+}
