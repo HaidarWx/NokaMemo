@@ -40,7 +40,7 @@ export function Navbar() {
   return (
     <nav className="bg-[#FFA6B5]">
       <div>
-        <div className="flex p-4 justify-around items-center">
+        <div className="flex p-4 justify-between md:justify-around items-center">
           {/* Icon */}
           <div className="flex items-center cursor-pointer">
             <div className="relative inline-block">
@@ -49,10 +49,10 @@ export function Navbar() {
                 width={64}
                 height={64}
                 unoptimized
-                className="absolute -left-11 -top-4 size-16 object-contain object-center"
+                className="hidden md:flex absolute -left-11 -top-4 size-14 md:size-16 object-contain object-center"
                 alt="Madoka Icon"
               />
-              <h1 className="font-bold text-[36px] text-white leading-none">
+              <h1 className="font-bold text-[26px] md:text-[36px]  text-white leading-none">
                 NokaMemo
                 <Image
                   src="/images/flower.png"
@@ -81,15 +81,29 @@ export function Navbar() {
           </div>
 
           <div className="">
-            <button className="block md:hidden text-white">☰</button>
+            <button
+              className="block md:hidden text-white text-[25px]"
+              onClick={() => setIsOpen(true)}
+            >
+              ☰
+            </button>
             <button className="hidden md:flex bg-white p-4 px-10 font-bold text-[#FFA6B5] cursor-pointer sm">
               Log In
             </button>
           </div>
-
+          {/* Overlay */}
+          {isOpen && (
+            <div
+              onClick={() => setIsOpen(false)}
+              className="fixed inset-0 z-40 bg-black/40 md:hidden"
+              aria-hidden="true"
+            />
+          )}
           {/* Sidebar (Mobile Mode) */}
-          <div className="fixed inset-y-0 right-0 z-50 w-74 bg-[#FFDADA] shadow-xl p-0 flex flex-col lg:hidden">
-            <div className="flex flex-col p-3 gap-3 justify-between">
+          <div
+            className={`fixed inset-y-0 overflow-y-auto right-0 z-50 w-74 bg-[#FFDADA] shadow-xl p-0 ${isOpen ? "flex" : "hidden"} flex-col lg:hidden`}
+          >
+            <div className="flex flex-col p-3 gap-5 justify-between">
               {/* Top */}
               <div className="flex flex-col">
                 {/* Close X */}
@@ -112,13 +126,13 @@ export function Navbar() {
                       className="absolute -left-11 -top-4 size-14 object-contain object-center"
                       alt="Madoka Icon"
                     />
-                    <h1 className="font-bold text-[30px] text-white leading-none">
+                    <h1 className="font-bold text-[28px] md:text-[30px] text-white leading-none">
                       NokaMemo
                       <Image
                         src="/images/flower.png"
                         width={64}
                         height={64}
-                        className="size-6 object-contain object-center absolute -top-1 -right-3"
+                        className="size-4 md:size-6 object-contain object-center absolute -top-1 -right-2"
                         alt="Flower"
                       />
                     </h1>
@@ -146,6 +160,7 @@ export function Navbar() {
               <div className="flex flex-col gap-1 items-center p-0 justify-center bg-[#FFA6B5]">
                 <div className="py-6 px-2 flex flex-col gap-2">
                   <div className="flex items-center justify-center">
+                    {/* Icon */}
                     <div className="relative inline-block">
                       <Image
                         src="/images/madoka-icon.gif"
@@ -167,11 +182,13 @@ export function Navbar() {
                       </h1>
                     </div>
                   </div>
+                  {/* Info */}
                   <p className="text-[13px] text-center text-white">
                     <b>NokaMemo</b> adalah website yang dapat menyimpan semacam
                     diary, memo, kalender pribadi dan hal hal lainnya yang
                     bersifat pribadi.
                   </p>
+                  {/* Social Media */}
                   <div>
                     <div className="flex gap-1 items-center">
                       <BiLogoInstagramAlt className="text-white text-[30px]" />
@@ -179,12 +196,15 @@ export function Navbar() {
                         @hidarz
                       </span>
                     </div>
-                    <div className="flex gap-1 items-center">
+                    <a
+                      href="https://github.com/HaidarWx"
+                      className="flex gap-1 items-center"
+                    >
                       <FaGithubSquare className="text-white text-[30px]" />
                       <span className="text-[14px] font-medium text-white">
                         HaidarWx
                       </span>
-                    </div>
+                    </a>
                   </div>
                 </div>
               </div>
