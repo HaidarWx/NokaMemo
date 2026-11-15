@@ -6,6 +6,7 @@ import { BsImage } from "react-icons/bs";
 import { BiSolidHome, BiLogoInstagramAlt } from "react-icons/bi";
 import { FaBook, FaTasks, FaInfoCircle, FaGithubSquare } from "react-icons/fa";
 import { MdOutlineHistoryEdu, MdLogin } from "react-icons/md";
+import Image from "next/image";
 interface NavMenuItem {
   label: string;
   href: string;
@@ -32,8 +33,6 @@ const navMenus: NavMenuItem[] = [
   { label: "Login", href: "/login", icon: <MdLogin />, mode: "mobile" },
 ];
 
-import Image from "next/image";
-
 export function Navbar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const pathname = usePathname();
@@ -58,7 +57,7 @@ export function Navbar() {
                   src="/images/flower.png"
                   width={64}
                   height={64}
-                  className="size-6 object-contain object-center absolute -top-1 -right-3"
+                  className="size-5 md:size-6 object-contain object-center absolute -top-1 -right-3"
                   alt="Flower"
                 />
               </h1>
