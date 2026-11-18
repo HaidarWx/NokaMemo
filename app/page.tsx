@@ -3,6 +3,8 @@ import { Footer } from "@/components/Footer";
 import { MemoCard } from "@/components/MemoCard";
 import { PictureCard } from "@/components/PictureCard";
 import { Calendar } from "@/components/Calendar";
+import { Quotes } from "@/components/Quotes";
+import { TodoList } from "@/components/TodoList";
 export default function Home() {
   return (
     <>
@@ -12,6 +14,8 @@ export default function Home() {
           <MemoCard />
           <PictureCard />
           <Calendar />
+          <Quotes />
+          <TodoList />
         </div>
       </main>
       <Footer />

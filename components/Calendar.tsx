@@ -8,6 +8,16 @@ interface CalendarDay {
   event: boolean;
 }
 
+const colSpanClasses: Record<number, string> = {
+  1: "col-span-1",
+  2: "col-span-2",
+  3: "col-span-3",
+  4: "col-span-4",
+  5: "col-span-5",
+  6: "col-span-6",
+  7: "col-span-7", // Jika baris sebelumnya penuh pas kelipatan 7, ia akan mengambil 1 baris penuh di bawah
+};
+
 const emptySubscribe = () => () => {};
 export function Calendar() {
   /*   const [monthLabel, setMonthLabel] = useState<string>("");
@@ -86,7 +96,7 @@ export function Calendar() {
   const remainder = calendarDays.length % 7;
   const emptySlots = remainder === 0 ? 7 : 7 - remainder;
 
-  console.log(calendarDays.length % 7);
+  console.log(emptySlots);
   return (
     <div className="bg-[#FFA6B5] p-1 rounded-[5px] flex flex-col gap-1">
       {/* Month Label */}
@@ -134,7 +144,7 @@ export function Calendar() {
           );
         })}
         <div
-          className={`flex justify-center bg-[#FDEDED] col-span-${emptySlots}`}
+          className={`flex justify-center bg-[#FDEDED] ${colSpanClasses[emptySlots]}`}
         >
           <div className="relative inline-block">
             <Image

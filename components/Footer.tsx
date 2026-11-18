@@ -10,7 +10,6 @@ import { MdOutlineHistoryEdu, MdLogin } from "react-icons/md";
 export function Footer() {
   return (
     <>
-      <div className="w-30">a</div>
       <footer>
         <div className="bg-[#FFA6B5] md:flex md:justify-around md:p-15 p-10 md:gap-0 md:flex-row flex flex-col gap-10">
           {/* Left */}
