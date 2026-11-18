@@ -2,13 +2,13 @@ import Image from "next/image";
 
 export function MemoCard() {
   return (
-    <div className=" bg-[#FFA6B5] rounded-[5px]">
-      <div className="flex flex-col gap-1 p-1 ">
+    <div className=" bg-[#FFA6B5] rounded-[5px] h-full">
+      <div className="flex flex-col gap-1 p-1 h-full">
         <div className="flex justify-between bg-[#FDEDED] rounded-[5px] py-4 px-2">
           <h3 className="text-[#FFA6B5] font-bold">Introduce NokaMemo</h3>
           <span className="text-[#FFA6B5] font-bold">Selasa, 20 Mei 2026</span>
         </div>
-        <div className="bg-[#FDEDED] text-[#FFA6B5] rounded-[5px] p-2">
+        <div className="bg-[#FDEDED] text-[#FFA6B5] rounded-[5px] p-2 h-full">
           <h3 className="font-bold">New Project : NokaMemo</h3>
           <p>
             <b>NokaMemo</b> adalah website yang dapat menyimpan semacam diary,
