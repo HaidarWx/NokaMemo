@@ -15,46 +15,11 @@ const colSpanClasses: Record<number, string> = {
   4: "col-span-4",
   5: "col-span-5",
   6: "col-span-6",
-  7: "col-span-7", // Jika baris sebelumnya penuh pas kelipatan 7, ia akan mengambil 1 baris penuh di bawah
+  7: "col-span-7",
 };
 
 const emptySubscribe = () => () => {};
 export function Calendar() {
-  /*   const [monthLabel, setMonthLabel] = useState<string>("");
-  const [calendarDays, setCalendarDays] = useState<CalendarDay[]>([]);
-  const remainder = calendarDays.length % 7;
-  const emptySlots = remainder === 0 ? 7 : 7 - remainder;
-  useEffect(() => {
-    const today = dayjs();
-    setMonthLabel(today.format("MMMM YYYY"));
-
-    const firstDayIndex = today.startOf("month").day();
-    const startOffset = firstDayIndex === 0 ? 6 : firstDayIndex - 1;
-    const totalDays = today.daysInMonth();
-
-    const emptyDays: CalendarDay[] = Array.from({ length: startOffset }).map(
-      () => ({
-        dayNumber: null,
-        isToday: false,
-        event: false,
-      }),
-    );
-    console.log(totalDays);
-    const actualDays: CalendarDay[] = Array.from({ length: totalDays }).map(
-      (_, idx) => {
-        const day = idx + 1;
-        return {
-          dayNumber: day,
-          isToday: today.date(day).isSame(today, "day"),
-          event: false,
-        };
-      },
-    );
-
-    console.log(emptyDays);
-    setCalendarDays([...emptyDays, ...actualDays]);
-  }, []);
-  console.log(calendarDays); */
   const todayStr = useSyncExternalStore(
     emptySubscribe,
     () => dayjs().format("YYYY-MM-DD"),
@@ -68,7 +33,7 @@ export function Calendar() {
     monthLabel = today.format("MMMM YYYY");
 
     const firstDayIndex = today.startOf("month").day();
-    console.log(firstDayIndex);
+
     const startOffset = firstDayIndex === 0 ? 6 : firstDayIndex - 1;
     const totalDays = today.daysInMonth();
 
@@ -96,7 +61,6 @@ export function Calendar() {
   const remainder = calendarDays.length % 7;
   const emptySlots = remainder === 0 ? 7 : 7 - remainder;
 
-  console.log(emptySlots);
   return (
     <div className="bg-[#FFA6B5] p-1 rounded-[5px] flex flex-col gap-1">
       {/* Month Label */}
@@ -120,12 +84,13 @@ export function Calendar() {
       <div className="grid grid-cols-7 gap-1 justify-center">
         {/* Date Cards */}
         {calendarDays.map((e, i) => {
+          console.log(calendarDays);
           return (
             <div className="relative inline-block" key={i}>
               <div
-                className={`flex flex-col justify-center ${e.dayNumber ? "bg-[#FDEDED]" : "bg-[#fdeded96]"} items-center  font-bold rounded-[5px]`}
+                className={`flex flex-col border-2 border-solid  justify-center ${e.isToday ? "border-white bg-[#fdeded96]" : "border-transparent"} ${e.dayNumber ? "bg-[#FDEDED]" : "bg-[#fdeded96]"} items-center  font-bold rounded-[5px]`}
               >
-                <span className="text-[#FFA6B5] text-[28px] font-extrabold [-webkit-text-stroke:1px_#FFFF]">
+                <span className="text-[#FFA6B5] text-[25px] font-extrabold [-webkit-text-stroke:1px_#FFFF]">
                   {e.dayNumber ? e.dayNumber : "-"}
                 </span>
               </div>

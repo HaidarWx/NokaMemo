@@ -1,6 +1,15 @@
 "use client";
 
+interface DataList {
+  date: string;
+  list: {
+    content: string;
+    isDone: boolean;
+  };
+}
 export function TodoList() {
+  const dataList: DataList[] = [];
+  console.log(dataList);
   return (
     <div className="bg-[#FFA6B5] h-full rounded-[5px]">
       {/* Head */}
@@ -35,65 +44,6 @@ export function TodoList() {
             Learning Japanese
           </span>
         </label>
-        <label className="relative flex items-center gap-1">
-          <input
-            type="checkbox"
-            className="peer shrink-0 appearance-none size-5 border-2 border-[#FFA6B5] rounded-sm bg-white checked:bg-[#FFA6B5] transition-colors cursor-pointer"
-          />
-          <svg
-            className="pointer-events-none absolute left-0.75 items-center  size-3.5 text-[#ffffff] opacity-0 peer-checked:opacity-100 transition-opacity"
-            viewBox="0 0 14 14"
-            fill="none"
-          >
-            <path
-              d="M3 7.5L5.5 10L11 4"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-
-          <span className="peer-checked:line-through text-[16px] text-[#FFA6B5] font-bold">
-            Make a Project : NokaMemo
-          </span>
-        </label>
-        <label className="relative flex items-center gap-1">
-          <input
-            type="checkbox"
-            className="peer shrink-0 appearance-none size-5 border-2 border-[#FFA6B5] rounded-[4px] bg-white checked:bg-[#FFA6B5] transition-colors cursor-pointer"
-          />
-          <svg
-            className="pointer-events-none absolute left-[3px] items-center  size-3.5 text-[#ffffff] opacity-0 peer-checked:opacity-100 transition-opacity"
-            viewBox="0 0 14 14"
-            fill="none"
-          >
-            <path
-              d="M3 7.5L5.5 10L11 4"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-
-          <span className="peer-checked:line-through text-[16px] text-[#FFA6B5] font-bold">
-            Communicate with other people in English
-          </span>
-        </label>
-        {/*  <div className="flex gap-1 text-[16px] text-[#FFA6B5] font-bold">
-          <input type="checkbox" className="" />
-          <span>Make a project : NokaMemo</span>
-        </div>
-        <div className="flex gap-1 text-[16px] text-[#FFA6B5] font-bold">
-          <input type="checkbox" className="" />
-          <svg
-            className="pointer-events-none absolute size-3.5 text-[#FDEDED] opacity-0 peer-checked:opacity-100 transition-opacity"
-            viewBox="0 0 14 14"
-            fill="none"
-          ></svg>
-          <span>Communicate with other people in English</span>
-        </div> */}
       </div>
     </div>
   );
