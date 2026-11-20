@@ -19,8 +19,8 @@ const navMenus: NavMenuItem[] = [
   { label: "Memories", href: "/memories", icon: <FaBook />, mode: "" },
   { label: "Gallery", href: "/gallery", icon: <BsImage />, mode: "" },
   {
-    label: "Daily Task",
-    href: "/daily-task",
+    label: "To-do List",
+    href: "/todo",
     icon: <FaTasks />,
     mode: "",
   },

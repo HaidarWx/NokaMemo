@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { PictureCard } from "@/components/PictureCard";
+import { GallerySlider } from "@/components/GallerySlider";
 
 interface ImageData {
   alt: string;
@@ -21,6 +22,7 @@ export default function Gallery() {
               <PictureCard key={i} ImageItem={e} />
             ))}
           </div>
+          <GallerySlider />
         </div>
       </main>
       <Footer />
