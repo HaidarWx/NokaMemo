@@ -5,6 +5,8 @@ import { PictureCard } from "@/components/PictureCard";
 import { Calendar } from "@/components/Calendar";
 import { Quotes } from "@/components/Quotes";
 import { TodoList } from "@/components/TodoList";
+import { AddMemo } from "@/components/AddMemo";
+import { DateOverlay } from "@/components/DateOverlay";
 export default function Home() {
   return (
     <>
@@ -16,6 +18,8 @@ export default function Home() {
           <Calendar />
           <Quotes />
           <TodoList />
+          <AddMemo />
+          <DateOverlay />
         </div>
       </main>
       <Footer />
