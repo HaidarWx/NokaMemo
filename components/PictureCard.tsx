@@ -1,11 +1,20 @@
 import Image from "next/image";
-
-export function PictureCard() {
+interface ImageData {
+  alt: string;
+  src: string;
+}
+interface CardProps {
+  ImageItem: ImageData;
+}
+export function PictureCard({ ImageItem }: CardProps) {
+  const src = `/images/${ImageItem.src}`;
+  const alt = ImageItem.alt;
+  console.log(ImageItem);
   return (
-    <div className=" bg-[#FFA6B5] relative w-full h-100 md:h-75 overflow-hidden rounded-[5px]">
+    <div className=" bg-[#e9b9c1] relative w-full h-100 md:h-75 overflow-hidden rounded-[5px]">
       <Image
-        src="/images/madohomu_1.jpg"
-        alt="Madoka love Homura"
+        src={`${src}`}
+        alt={`${alt}`}
         fill
         className="object-cover object-center p-2"
       />

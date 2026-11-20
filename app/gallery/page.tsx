@@ -2,6 +2,14 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { PictureCard } from "@/components/PictureCard";
 
+interface ImageData {
+  alt: string;
+  src: string;
+}
+const ImageItem: ImageData[] = [
+  { alt: "Madohomu", src: "madohomu_1.jpg" },
+  { alt: "Madohomu", src: "madohomu.webp" },
+];
 export default function Gallery() {
   return (
     <>
@@ -9,8 +17,9 @@ export default function Gallery() {
       <main className="bg-[#FFFF]">
         <div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto px-4 py-4">
-            <PictureCard />
-            <PictureCard />
+            {ImageItem.map((e, i) => (
+              <PictureCard key={i} ImageItem={e} />
+            ))}
           </div>
         </div>
       </main>
