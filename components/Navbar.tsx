@@ -17,7 +17,7 @@ interface NavMenuItem {
 const navMenus: NavMenuItem[] = [
   { label: "Home", href: "/", icon: <BiSolidHome />, mode: "" },
   { label: "Memories", href: "/memories", icon: <FaBook />, mode: "" },
-  { label: "Image", href: "/image", icon: <BsImage />, mode: "" },
+  { label: "Gallery", href: "/gallery", icon: <BsImage />, mode: "" },
   {
     label: "Daily Task",
     href: "/daily-task",
