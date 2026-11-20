@@ -1,6 +1,6 @@
 export function AddMemo() {
   return (
-    <div className=" bg-[#FFA6B5] h-full rounded-[5px]">
+    <div className=" bg-[#FFA6B5] h-full rounded-[5px] cursor-pointer">
       <div className="flex flex-col items-center justify-center bg-[#FDEDED] md:h-40 m-1">
         <div className="">
           <svg

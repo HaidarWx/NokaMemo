@@ -13,9 +13,10 @@ interface NavMenuItem {
   icon: React.ReactNode;
   mode: string;
 }
+
 const navMenus: NavMenuItem[] = [
   { label: "Home", href: "/", icon: <BiSolidHome />, mode: "" },
-  { label: "Memory's", href: "/memory", icon: <FaBook />, mode: "" },
+  { label: "Memories", href: "/memories", icon: <FaBook />, mode: "" },
   { label: "Image", href: "/image", icon: <BsImage />, mode: "" },
   {
     label: "Daily Task",

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export function MemoCard() {
   return (
-    <div className=" bg-[#FFA6B5] rounded-[5px] h-full">
+    <div className=" bg-[#FFA6B5] rounded-[5px] h-full cursor-pointer">
       <div className="flex flex-col gap-1 p-1 h-full">
         <div className="flex justify-between bg-[#FDEDED] rounded-[5px] py-4 px-2">
           <h3 className="text-[#FFA6B5] font-bold">Introduce NokaMemo</h3>
