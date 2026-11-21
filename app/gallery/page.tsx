@@ -1,9 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { PictureCard } from "@/components/PictureCard";
-import { GallerySlider } from "@/components/GallerySlider";
-
-interface ImageData {
+import { GalleryContent } from "@/components/GalleryContent";
+export interface ImageData {
   alt: string;
   src: string;
 }
@@ -16,14 +14,7 @@ export default function Gallery() {
     <>
       <Navbar />
       <main className="bg-[#FFFF]">
-        <div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto px-4 py-4">
-            {ImageItem.map((e, i) => (
-              <PictureCard key={i} ImageItem={e} />
-            ))}
-          </div>
-          <GallerySlider />
-        </div>
+        <GalleryContent items={ImageItem} />
       </main>
       <Footer />
     </>
