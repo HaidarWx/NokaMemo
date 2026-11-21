@@ -8,6 +8,7 @@ export interface ImageData {
 const ImageItem: ImageData[] = [
   { alt: "Madohomu", src: "madohomu_1.jpg" },
   { alt: "Madohomu", src: "madohomu.webp" },
+  { alt: "Madoka", src: "god.jpg" },
 ];
 export default function Gallery() {
   return (

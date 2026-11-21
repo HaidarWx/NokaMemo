@@ -7,11 +7,11 @@ interface DataList {
     isDone: boolean;
   };
 }
-export function TodoList() {
+export function TodoListCard() {
   const dataList: DataList[] = [];
   console.log(dataList);
   return (
-    <div className="bg-[#FFA6B5] h-full rounded-[5px]">
+    <div className="bg-[#FFA6B5] h-full rounded-[5px] cursor-pointer">
       {/* Head */}
       <div className="bg-[#FDEDED] m-1 p-2 flex justify-between items-center rounded-[5px]">
         <h1 className="text-[#FFA6B5] text-[20px] font-bold">Daily Task</h1>
