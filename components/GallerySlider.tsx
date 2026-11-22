@@ -22,10 +22,10 @@ export function GallerySlider({ items, initialIndex }: Items) {
     setCurrentIndex((prev) => (prev === items.length - 1 ? 0 : prev + 1));
   };
   return (
-    <div className="relative flex bg-[#FFA6B5] w-fit rounded-[5px] overflow-hidden p-2">
+    <div className="relative flex bg-[#FFA6B5] rounded-[5px] overflow-hidden p-4">
       <div className="flex flex-col items-center bg-[#FFA6B5] ">
-        <div className="flex p-5 gap-2 justify-center">
-          <div className="bg-[#e9b9c1] relative w-100 h-100 md:h-75 overflow-hidden">
+        <div className="flex flex-col items-center md:flex-row p-2 md:p-5 gap-2 justify-center">
+          <div className="bg-[#e9b9c1] shrink-0 relative h-64 w-full md:w-100 md:h-75   overflow-hidden">
             <Image
               className="object-cover object-center"
               alt={`${alt}`}
@@ -33,9 +33,9 @@ export function GallerySlider({ items, initialIndex }: Items) {
               src={`/images/${src}`}
             />
           </div>
-          <div className="flex flex-col items-center gap-4 w-100">
+          <div className="flex flex-col items-center gap-4 md:w-100">
             <h1 className="text-[#ffff] font-bold text-[24px]">{alt}</h1>
-            <span className="text-[#ffff] text-[16px]">
+            <span className="text-[#ffff] text-[16px]  text-center md:text-left">
               <b>NokaMemo</b> adalah website yang dapat menyimpan semacam diary,
               memo, kalender pribadi dan hal hal lainnya yang bersifat pribadi.
             </span>

@@ -10,7 +10,7 @@ export function GalleryContent({ items }: { items: ImageData[] }) {
   console.log(items);
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto px-4 py-4">
+      <div className="grid grid-cols-3 md:grid-cols-3 gap-2 max-w-7xl mx-auto px-4 py-4">
         {items.map((e, i) => (
           <div
             key={i}
@@ -20,7 +20,7 @@ export function GalleryContent({ items }: { items: ImageData[] }) {
             <PictureCard ImageItem={e} />
           </div>
         ))}
-        <div className=" bg-[#FFA6B5] h-full rounded-[5px] cursor-pointer">
+        <div className=" bg-[#FFA6B5] h-full rounded-xs md:rounded-[5px] cursor-pointer">
           <div className="flex flex-col items-center justify-center bg-[#FDEDED] md:h-40 m-1">
             <div className="">
               <svg
@@ -37,8 +37,8 @@ export function GalleryContent({ items }: { items: ImageData[] }) {
                 />
               </svg>
             </div>
-            <div className="text-[#FFA6B5] font-bold text-[24px]">
-              Add more your memo here...
+            <div className="text-[#FFA6B5] text-center items-center font-bold text-[10px] md:text-[24px]">
+              Add more your image here...
             </div>
           </div>
         </div>
@@ -48,7 +48,7 @@ export function GalleryContent({ items }: { items: ImageData[] }) {
           className={`flex fixed inset-0 z-50 items-center justify-center backdrop-blur-xs bg-[#ffffff3d]`}
           onClick={() => setSelectedIndex(null)}
         >
-          <div onClick={(e) => e.stopPropagation()}>
+          <div onClick={(e) => e.stopPropagation()} className="w-full md:w-fit">
             <GallerySlider items={items} initialIndex={selectedIndex} />
           </div>
         </div>
