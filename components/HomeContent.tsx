@@ -1,6 +1,3 @@
-"use client";
-import { Navbar } from "../components/Navbar";
-import { Footer } from "@/components/Footer";
 import { MemoCard } from "@/components/MemoCard";
 import { PictureCard } from "@/components/PictureCard";
 import { Calendar } from "@/components/Calendar";
@@ -8,11 +5,12 @@ import { Quotes } from "@/components/Quotes";
 import { TodoListCard } from "@/components/TodoListCard";
 import { AddMemo } from "@/components/AddMemo";
 import { DateOverlay } from "@/components/DateOverlay";
-import { useState } from "react";
+import { todoLists } from "@/data/todos";
 interface ImageData {
   alt: string;
   src: string;
 }
+
 const ImageItem: ImageData[] = [
   { alt: "Madohomu", src: "madohomu_1.jpg" },
   { alt: "Madohomu", src: "madohomu.webp" },
@@ -25,7 +23,7 @@ export function HomeContent() {
       <PictureCard ImageItem={ImageItem[1]} />
       <Calendar />
       <Quotes />
-      <TodoListCard />
+      <TodoListCard todoList={todoLists[0]} />
       <AddMemo />
       <DateOverlay />
     </div>

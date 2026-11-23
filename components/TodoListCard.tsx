@@ -1,25 +1,26 @@
 "use client";
-import { DataList } from "@/app/todo/page";
-import { TodoSubItem } from "@/app/todo/page";
-
-interface Todo {
-  TodoList: DataList;
+import { todoLists } from "@/data/todos";
+import { TodoTask } from "@/data/todos";
+import { TodoList } from "@/data/todos";
+interface TodoListCardProps {
+  todoList: TodoList;
 }
 
-export function TodoListCard({ TodoList }: Todo) {
-  console.log(TodoList);
+export function TodoListCard({ todoList }: TodoListCardProps) {
+  if (todoList.list.length === 0) return;
+  console.log(todoList);
   return (
     <div className="bg-[#FFA6B5] h-full rounded-[5px] cursor-pointer">
       {/* Head */}
       <div className="bg-[#FDEDED] m-1 p-2 flex justify-between items-center rounded-[5px]">
         <h1 className="text-[#FFA6B5] text-[20px] font-bold">Daily Task</h1>
         <span className="text-[#FFA6B5] text-[14px] font-bold">
-          {TodoList.date}
+          {todoList.date}
         </span>
       </div>
       {/* Content */}
       <div className="bg-[#FDEDED] m-1 p-2 gap-2 flex justify-between rounded-[5px] flex-col relative">
-        {TodoList.list.map((e, i) => (
+        {todoList.list.map((e, i) => (
           <label className="relative flex items-center gap-1" key={i}>
             <input
               type="checkbox"
