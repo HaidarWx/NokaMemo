@@ -1,6 +1,4 @@
 "use client";
-import { todoLists } from "@/data/todos";
-import { TodoTask } from "@/data/todos";
 import { TodoList } from "@/data/todos";
 interface TodoListCardProps {
   todoList: TodoList;
@@ -21,13 +19,16 @@ export function TodoListCard({ todoList }: TodoListCardProps) {
       {/* Content */}
       <div className="bg-[#FDEDED] m-1 p-2 gap-2 flex justify-between rounded-[5px] flex-col relative">
         {todoList.list.map((e, i) => (
-          <label className="relative flex items-center gap-1" key={i}>
+          <label
+            className="relative flex items-center gap-1 cursor-pointer"
+            key={i}
+          >
             <input
               type="checkbox"
-              className="peer shrink-0 appearance-none size-5 border-2 border-[#FFA6B5] rounded-sm bg-white checked:bg-[#FFA6B5] transition-colors cursor-pointer"
+              className="peer shrink-0 focus:outline-none appearance-none size-5 border-2 border-[#FFA6B5] rounded-sm bg-white cursor-pointer"
             />
             <svg
-              className="pointer-events-none absolute left-0.75 items-center  size-3.5 text-[#ffffff] opacity-0 peer-checked:opacity-100 transition-opacity"
+              className="pointer-events-none absolute left-0.75 items-center cursor-pointer  size-3.5 text-[#ffffff] opacity-0 "
               viewBox="0 0 14 14"
               fill="none"
             >
@@ -40,7 +41,7 @@ export function TodoListCard({ todoList }: TodoListCardProps) {
               />
             </svg>
 
-            <span className="peer-checked:line-through text-[16px] text-[#FFA6B5] font-bold">
+            <span className=" text-[16px] text-[#FFA6B5] font-bold cursor-pointer">
               {e.content}
             </span>
           </label>

@@ -25,11 +25,11 @@ export const todoLists: TodoList[] = [
     date: "Selasa, 21 Mei 2026",
     list: [
       {
-        content: "Belajar Bahasa Jepang",
+        content: "On Bid Shoope",
         isDone: false,
       },
       {
-        content: "Lanjut Project NokaMemo",
+        content: "Lanjut Project NokaMemo [1]",
         isDone: false,
       },
     ],
