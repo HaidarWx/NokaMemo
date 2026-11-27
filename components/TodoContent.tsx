@@ -6,6 +6,8 @@ import { useState } from "react";
 interface TodoListCardProps {
   todoList: TodoList[];
 }
+import { TbEditFilled } from "react-icons/tb";
+import { AiFillDelete } from "react-icons/ai";
 export function TodoContent({ todoList }: TodoListCardProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   console.log(todoList);

@@ -1,6 +1,8 @@
 import { TodoList } from "@/data/todos";
 import { TodoTask } from "@/data/todos";
-
+import { TbEditFilled } from "react-icons/tb";
+import { AiFillDelete } from "react-icons/ai";
+import { TaskOverlay } from "./TaskOverlay";
 interface Items {
   items: TodoList[];
   selectedIndex: number;
@@ -22,32 +24,43 @@ export function TodoOverlay({ items, selectedIndex }: Items) {
           <div className="flex flex-col gap-1 flex-wrap max-h-72 overflow-y-auto pr-2">
             {taskList &&
               taskList.map((task) => (
-                <label
-                  className="relative flex items-center gap-1"
-                  key={task.content}
-                >
-                  <input
-                    type="checkbox"
-                    className="peer shrink-0 appearance-none size-5 border-2 border-[#FFA6B5] rounded-sm bg-white checked:bg-[#FFA6B5] transition-colors cursor-pointer"
-                  />
-                  <svg
-                    className="pointer-events-none absolute left-0.75 items-center  size-3.5 text-[#ffffff] opacity-0 peer-checked:opacity-100 transition-opacity"
-                    viewBox="0 0 14 14"
-                    fill="none"
-                  >
-                    <path
-                      d="M3 7.5L5.5 10L11 4"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                <div key={task.content}>
+                  <div className="flex gap-2">
+                    <label className="relative flex items-center gap-1 select-none">
+                      <input
+                        type="checkbox"
+                        className="peer shrink-0 appearance-none size-5 border-2 border-[#FFA6B5] rounded-sm bg-white checked:bg-[#FFA6B5] transition-colors cursor-pointer"
+                      />
+                      <svg
+                        className="pointer-events-none absolute left-0.75 items-center  size-3.5 text-[#ffffff] opacity-0 peer-checked:opacity-100 transition-opacity"
+                        viewBox="0 0 14 14"
+                        fill="none"
+                      >
+                        <path
+                          d="M3 7.5L5.5 10L11 4"
+                          stroke="currentColor"
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
 
-                  <span className="peer-checked:line-through text-[20px] text-[#FFA6B5] font-bold">
-                    {task.content}
-                  </span>
-                </label>
+                      <span className="peer-checked:line-through text-[20px] text-[#FFA6B5] font-bold cursor-pointer">
+                        {task.content}
+                      </span>
+                    </label>
+                    {/* Delete and Edit Button */}
+                    <div className="flex gap-1 justify-center items-center">
+                      <div className="cursor-pointer border-4 border-[#FFA6B5] px-2 rounded-[5px] select-none">
+                        <AiFillDelete className="text-[#FFA6B5]" />
+                      </div>
+                      <div className="cursor-pointer border-4 border-[#FFA6B5] px-2 rounded-[5px] select-none">
+                        <TbEditFilled className="text-[#FFA6B5]" />
+                      </div>
+                    </div>
+                  </div>
+                  <TaskOverlay />
+                </div>
               ))}
           </div>
           {/* Button Edit */}
