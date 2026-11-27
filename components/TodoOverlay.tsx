@@ -1,3 +1,5 @@
+"use client";
+import { useState } from "react";
 import { TodoList } from "@/data/todos";
 import { TodoTask } from "@/data/todos";
 import { TbEditFilled } from "react-icons/tb";
@@ -10,6 +12,9 @@ interface Items {
 export function TodoOverlay({ items, selectedIndex }: Items) {
   const date = items ? items[selectedIndex].date : "";
   const taskList = items ? items[selectedIndex].list : [];
+  const [isEditing, setIsEditing] = useState<boolean>(false);
+  const [isEditingTask, setIsEditingTask] = useState<boolean>(false);
+  console.log(taskList);
   return (
     <div className="bg-[#FFA6B5] p-2 w-full md:max-w-4xl mx-auto shadow-lg rounded-[5px]">
       <div className="flex flex-col gap-2 w-full">
@@ -50,22 +55,42 @@ export function TodoOverlay({ items, selectedIndex }: Items) {
                       </span>
                     </label>
                     {/* Delete and Edit Button */}
-                    <div className="flex gap-1 justify-center items-center">
-                      <div className="cursor-pointer border-4 border-[#FFA6B5] px-2 rounded-[5px] select-none">
-                        <AiFillDelete className="text-[#FFA6B5]" />
+                    {isEditing && (
+                      <div className="flex gap-1 justify-center items-center">
+                        <div className="cursor-pointer border-4 border-[#FFA6B5] px-2 rounded-[5px] select-none">
+                          <AiFillDelete className="text-[#FFA6B5]" />
+                        </div>
+                        <div
+                          onClick={() => setIsEditingTask(true)}
+                          className="cursor-pointer border-4 border-[#FFA6B5] px-2 rounded-[5px] select-none"
+                        >
+                          <TbEditFilled className="text-[#FFA6B5]" />
+                        </div>
                       </div>
-                      <div className="cursor-pointer border-4 border-[#FFA6B5] px-2 rounded-[5px] select-none">
-                        <TbEditFilled className="text-[#FFA6B5]" />
-                      </div>
-                    </div>
+                    )}
                   </div>
-                  <TaskOverlay />
+                  {isEditingTask && (
+                    <div
+                      onClick={() => setIsEditingTask(false)}
+                      className={`flex fixed inset-0 z-50 items-center justify-center backdrop-blur-xs bg-[#ffffff3d]`}
+                    >
+                      <TaskOverlay taskList={taskList} />
+                    </div>
+                  )}
                 </div>
               ))}
           </div>
           {/* Button Edit */}
-          <button className="text-[#ffff] text-[20px] font-bold self-end px-6 py-2 cursor-pointer bg-[#FFA6B5] rounded-[5px] border-4 border-[#ffff]">
-            Edit
+
+          <button
+            onClick={() => {
+              if (isEditing) {
+              }
+              setIsEditing((prev) => !prev);
+            }}
+            className="text-[#ffff] text-[20px] font-bold self-end px-6 py-2 cursor-pointer bg-[#FFA6B5] rounded-[5px] border-4 border-[#ffff]"
+          >
+            {isEditing ? "Save" : "Edit"}
           </button>
         </div>
       </div>
